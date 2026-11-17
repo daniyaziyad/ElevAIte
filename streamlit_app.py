@@ -25,3 +25,51 @@ occupancy patterns, and historical data. The system automatically
 switches elevators between active and standby modes to reduce energy
 consumption while maintaining accessibility and low waiting times.
 """)
+st.write("""
+ElevAIte uses AI to predict elevator demand based on class schedules,
+occupancy patterns, and historical data. The system automatically
+switches elevators between active and standby modes to reduce energy
+consumption while maintaining accessibility and low waiting times.
+""")
+
+# PASTE HERE ↓↓↓
+
+import pandas as pd
+
+st.header("Elevator Status")
+
+elevator_data = pd.DataFrame({
+    "Elevator": ["A", "B", "C", "D"],
+    "Status": ["Active", "Active", "Standby", "Standby"],
+    "Current Floor": ["Ground", "Floor 2", "Floor 4", "Floor 3"]
+})
+
+st.table(elevator_data)
+
+st.header("Predicted Demand")
+
+demand = pd.DataFrame({
+    "Time": ["8 AM", "10 AM", "12 PM", "2 PM", "5 PM"],
+    "Demand": [90, 60, 80, 30, 95]
+})
+
+st.line_chart(demand.set_index("Time"))
+
+st.header("Energy Consumption Comparison")
+
+energy = pd.DataFrame({
+    "System": ["Traditional", "ElevAIte"],
+    "Usage": [100, 72]
+})
+
+st.bar_chart(energy.set_index("System"))
+
+st.header("Accessibility Monitoring")
+
+st.info("""
+Priority services are automatically provided for:
+- Wheelchair users
+- Elderly visitors
+- Injured students
+- Temporary mobility assistance requests
+""")
